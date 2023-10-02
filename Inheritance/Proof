@@ -1,1 +1,119 @@
+INHERITANCE
 
+1 Inheritance provided mechanism that allowed a class to inherit property of another class using the keyword EXTENDS and btw interface and class is IMPLEMENTS.
+Proof:
+       Lets us take two class of A and B(Single inheritance).                              
+                                                                                 
+class A{  
+    public void parent(){
+        System.out.print("Parent class");
+    }
+}
+class B{
+    public void child() {
+        System.out.print("Child class");
+    }
+    public static void main(String args[]){
+        B b = new B();
+        b.parent();
+    }
+}
+Not possible to inherit the properties of class A from class B with this code(Method not found error). So we must use the extend keyword for it.
+
+WITH EXTENDS KEYWORD
+class A{
+    public void parent(){
+        System.out.print("Parent class");
+    }
+}
+class B extends A{
+    public void child() {
+        System.out.print("Child class");
+    }
+    public static void main(String args[]){
+        B b = new B();
+        b.parent();
+    }
+}
+
+WITH IMPLEMENTS KEYWORD
+If we use extends in btw interface and class (class must either be a abstract or implement abstract method).
+
+interface A{
+    public void print();
+}
+class B implements A{
+public void print(){
+    System.out.print("Message from class B");
+}
+public static void main(String args[]){
+    B b  = new B();
+    b.print();
+}
+}
+Thus to inherit the properties of another class we must use the keywords implement or extend keyword base on it.
+if we use implements keyword all the abstract methods in the class must be implemented ,let us take in later ...
+
+2. When a Class extends another class it inherits all non-private members 
+proof:
+ * Here private is an access modifier and there are four access modifier
+  ->public     (class can have only public method)
+  ->protected  
+  ->default    (default method of class)
+  ->private
+* Members of the classes are methods and variables of the class.
+
+* Let us exercise all the modifiers and check this out
+
+   interface C{
+    default void fun(){
+        System.out.print("fun");
+    }
+}
+class A{
+    public void a1(){
+        System.out.print("public");
+    }
+    protected void a2() {
+        System.out.print("protected");
+    }
+    default void a3(){
+        System.out.print("default");
+    }
+    private void a4(){
+        System.out.print("private");
+    }
+}
+class B extends A{
+    public static void main(String args[]){
+        B b = new B();
+        b.a1();
+        b.a2(); //cannot use it in class.Used in interface and the method must have the body
+        b.a3();
+        b.a4(); //not accessible as it is private (method will not be accessed (java:cannot find symbol))
+    }
+}
+
+3. It promotes polymorphism by allowing method overriding.
+proof:
+   * Overriding is possible only when one class links with another class through inheritance relationship.
+   * Overriding is nothing but redefinning the method of super class in the subclass.
+   * Fact:Object class it the super class for very class.Every class implicitly inherits the object class.
+
+class A{
+    public void fun(){
+        System.out.print("This is super class");
+    }
+
+}
+class B extends A{
+    @Override
+    public void fun(){
+        System.out.print("This is sub class");
+    }
+    public static void main(String args[]){
+        B b = new B();
+        b.fun();
+    }
+}
+*If this the class is not inherited.when we use ovveride in that case we get the error of this method doesnt override any method of super class.
