@@ -1,1 +1,72 @@
+STACK AND HEAP MEMORY OVERVIEW
+  * These are a memory space used to store the variables,methods and objects of the class.
+  * when the program starts to run , the JVM is launched.
+  * The JVM allocates a part of memory for the heap and stack memory.
+  * The JVM executes every line of the code and allocates memory dynamically to stack and heap.
 
+STACK
+  * It is a fixed size;
+  * It stores everything as a LIFI;
+  * It stores the method as a method call frame.The local variables are stored in the method call frame;
+  * It stores the
+    ->Local variables (static , final , private);
+    ->method call frames (local variables and return address i.e the new stack is created when a method is called, this new stack stores the value of previous stack which helps to return the value for it));
+    ->It even stores the refernce for the object;
+ * The values are stored temorarily;
+
+HEAP
+ * It has unlimited size;
+ * It stores the Objects;
+ * It can store or pop the objects it stores;
+
+WORKING
+
+1 public class MemoryDemo {
+  2  public static void main(String[] args) {
+   3     int x = 10; // Stack: Allocate memory for x
+    4    int y = 20; // Stack: Allocate memory for y
+
+     5   Person person1 = new Person("Alice"); // Heap: Create person1 object in the heap
+      6  Person person2 = new Person("Bob");   // Heap: Create person2 object in the heap
+
+        // Rest of program execution...
+
+   7 } // Stack: Pop main method frame, person1 and person2 eligible for garbage collection
+8 }
+
+9 class Person {
+  10  private String name;
+
+    11 public Person(String name) {
+       12 this.name = name;
+    13 }
+
+    14 public String getName() {
+       15 return name;
+     16 }
+17 }
+
+* when the program starts to run
+* The JVM is launched , the memory space for the stack and heap is created in the memory;
+* The JVM starts in the main method;(The main frame is pushed on to the stack);
+* (3) The JVM create a memory space for the variable x in main (x is stored in the stack);
+* (4) " "
+* (5) The new keyword is used here so memory is allocated for that object
+   -> The JVM creates the memory space in the HEAP.
+   -> The JVM intilizeses the value for the object.
+     * (6)a new method frame is created for the Person("Alice");
+     * (11)The value for name is assigned for that object reference;
+     * The JVM returns the address for the object in the heap;
+*(5) Then JVM Returns to the main method stack through the return address and returns the  address of the object in the heap;
+*(6) same is repeated;
+* As the main method is executed the main method is popped from the stack;
+* The JVM checks for the unreacheable or noreference object in the code;
+* Once done the condition met Object are eligible for Garbage collection;
+* The JVM initializes the garbage collection ,it can also be done manually 
+  ->refering the objects to null,
+  ->finalize() method,
+  ->System.gc();
+* But the JVM is not gaurnteed,the programmers cant do it immmediately;
+* Then the person1 and person2 are removed so the memory space are released ,but deallocation of memory is done automatically by java .
+
+ 
