@@ -1,1 +1,41 @@
+Garbage Collection
+ * It is a memory management process , where the memory for objects in the heap are allocated and released efficiently;
+ * In java garbage collector is an automatic process;
+ * GC efficiency is influenced by various factors, including algorithm choice, heap size, application characteristics, and tuning parameters.
+WORKING
+POV : (Mark and Sweep)
+ * The object is created in the heap;
+ * The Mark and sweep algorithmn marks the objects as 0 when they are created.
+ * In the mark phase , garbage collector traverse throught the entire root object ,which are reachable are marked as 1 and others are 0(root object are the local variables and static variables,thread that referce to the object and the refernces, these point to the object in the heap soby traversing it we can find the objects which are active);
+ * In the sweep phase , the garbage collector frees up the space for the objects that are marked as 0;
 
+POV : (Generation GC)
+ * In this , the memory is divided into two 
+  ->Younger Generation
+  ->Older Generation
+* The Younger Generation has two 
+  ->Eden
+  ->survivour
+   ->surviour 1
+   ->surviour 2
+* Tenured is the older generation
+* The space for the object is first created in the eden of younger generation;
+* when the space is full then the gc reclaims the memory that are unused and shifts the objects that crossed certain cycles of gc.
+* This is called minor gc;
+* The longer cycles that are crossed by the objects in the surviour are moved to the older generation;
+* The number cycles in the younger generation is frequent compared to older generation;
+* There are memory leaks in older generation compared to younger generation(The object which is created in the  generation , are not frequently checked so even when the object has no refernce it is still in the memory so it may cause a memory leak);
+
+MANUAL GC
+ * As a programmer we can request the gc for making it eligible for garbage by using the System.gc() method;
+
+class Main{
+    public static void main(String args[]){
+        int a = 10;
+        for(int i = 0;i<10;i++){
+            System.out.print(i);
+        }
+        System.gc();
+    }
+}
+* This frees up the memory space .
