@@ -65,7 +65,7 @@ proof:
 
 * Let us exercise all the modifiers and check this out
 
-   interface C{
+  interface C{
     default void fun(){
         System.out.print("fun");
     }
@@ -88,11 +88,14 @@ class B extends A{
     public static void main(String args[]){
         B b = new B();
         b.a1();
-        b.a2(); //cannot use it in class.Used in interface and the method must have the body
-        b.a3();
+        b.a2(); 
+        b.a3(); //cannot use it in class.Used in interface and the method must have the body
         b.a4(); //not accessible as it is private (method will not be accessed (java:cannot find symbol))
     }
 }
+
+  * The default method in the interface can either be used or not used,or it can be overriden by the superclass wihtout disturbing the implemnetation of the interface;
+  * Not neccessary to be defined;
 
 3. It promotes polymorphism by allowing method overriding.
 proof:
