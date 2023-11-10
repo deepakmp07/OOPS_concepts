@@ -1,1 +1,38 @@
+POLYMORPHISM
+* The word poly means many and morphism means forms, so one function has many forms;
+* In programming for example one interface has multiple implementations;
+* Two types
+   -> Compile-time Polymorphism
+   -> Runtime Polymorphism
 
+->Compile-Time Polymophism
+*It is also know as static binding;
+*These bindings are resolved during the compilation;
+*The compiler determines which method call to bind with which method definition based on the number of arguments and type and othe factors;
+*compiler optimes the code which makes the compiletime polymorphism faster;
+*The optimization can be removing the unused codes,constatnt folding,method inlineing is 
+ involves replacing the method call with the actual code of the method. This process aims 
+ to reduce the overhead associated with method calls.;
+*The compiler deducts the error in the compilation time; 
+ Example of compile time polymorphism is method overload;
+ *Method overloading is a feature in object-oriented programming languages 
+that allows a class to define multiple methods with the same name but with different parameters.
+ *In other words, in a class, you can have multiple methods that share the same name 
+but differ in the type, number, or order of their parameters.
+public class Main{
+    public void fun(int a,int b){
+        System.out.println("2 arguments");
+    }
+    public void fun(int a){
+        System.out.println("1 argument");
+    }
+    public static void main(String args[]){
+        Main m = new Main();
+        m.fun(1);
+        m.fun(1,2);
+    }
+}
+The binding is done using the number of method argument with those methods;
+
+->Runtime Polymorphism
+*
