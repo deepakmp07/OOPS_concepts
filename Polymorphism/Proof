@@ -35,4 +35,40 @@ public class Main{
 The binding is done using the number of method argument with those methods;
 
 ->Runtime Polymorphism
-*
+*It is also called as Dynamic polymorphism;
+*The function call to the overriden method is resolved during runtime;
+*The type of the object is determined during the run time , the object type is considered not the referencd type as base class;
+ Example : Overriden Method
+
+*The child class uses the @Override annotation to override its superclass;
+*The base class has a internal annotation called virtual method which helps its child class to override the methods of this class;
+*To Override a method the signature of the base class method and child class method must be same ,only the definition differs;
+
+ class A {
+    public void fun(int a, int b) {
+        System.out.println("Class A");
+    }
+
+    public void fun(int a) {
+        System.out.println("1 argument");
+    }
+}
+class B extends A{
+    @Override
+    public void fun(int a,int bb){
+        System.out.println("class B");
+    }
+    public void d(){
+        System.out.println("class B fun");
+    }
+}
+public class Main {
+    public static void main(String args[]) {
+        A m = new B();
+        m.fun(1,1);
+        ((B)m).d();
+    }
+}
+
+*We have to use cast to use the methods of the non-overriden child class;
+*The object is A here , the refernce is not taken;
