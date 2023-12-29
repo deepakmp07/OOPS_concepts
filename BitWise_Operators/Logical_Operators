@@ -1,1 +1,16 @@
+Logical Operators
+ * The Logical operators perform operations using AND , OR , and NOT gate;
+ * These operators are used to combine two or more conditions or complement the evaluation of the original condition under particular condition;
+ * While using AND operator if the first condition is false the short circuiting happens i.e the second condition is not considered;
+ * Both AND and OR operators have short circuting effect;
 
+Advantages
+ * Readability
+ * Flexibility
+ * Reusability
+ * Debugging
+Disadvantages
+ * Short circuit evaluation (ex: (a>b)&&(b++>c) if first condition is false the second condition is not evaluated , so our increment operator fails)
+ * Limited Expressiveness(ex: if else,switch,etc.. can handle multiple condition where as logical operators cant handle it)
+ * Potential for Confusion(ex: when it comes to complex expressivness it confuses (a and b or c) when () are used it can be identified)
+ * Boolean coercion
