@@ -37,7 +37,7 @@ class B extends A{
 }
 
 WITH IMPLEMENTS KEYWORD
-If we use extends in btw interface and class (class must either be a abstract or implement abstract method).
+If we use implements in btw interface and class (class must either be a abstract or implement abstract method).
 
 interface A{
     public void print();
@@ -51,8 +51,8 @@ public static void main(String args[]){
     b.print();
 }
 }
-Thus to inherit the properties of another class we must use the keywords implement or extend keyword base on it.
-if we use implements keyword all the abstract methods in the class must be implemented ,let us take in later ...
+Thus to inherit the properties of another class we must use the keywords implement or extend keyword based on it.
+if we use implements keyword all the abstract methods in the class must be implemented ,let us talk it later ...
 
 2. When a Class extends another class it inherits all non-private members 
 proof:
